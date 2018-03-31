@@ -116,7 +116,7 @@ script:
   - if [ "${CC}" == 'clang' ];
     then
     cd ..  ;
-    ls
+    ls ;
     rm -rf build/* ;
     cd build ;
     cmake .. ;
