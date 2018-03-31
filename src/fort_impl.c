@@ -6,7 +6,7 @@
 /*****************************************************************************
  *               LIBFORT helpers
  *****************************************************************************/
-char *fort_strdup(const char* str)
+char *fort_strdup(const char *str)
 {
     if (str == NULL)
         return NULL;
