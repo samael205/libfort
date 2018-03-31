@@ -120,10 +120,10 @@ script:
       rm -r build/* ;
       cd build ;
       cmake .. -DFORT_ENABLE_ASTYLE=ON ;
-      echo "CMAKE_BINARY_DIR = ${CMAKE_BINARY_DIR}""
-      ls -al
-      ls -al external
-      ls -al ..
+      echo "CMAKE_BINARY_DIR = ${CMAKE_BINARY_DIR}"
+      ls -al ;
+      ls -al external ;
+      ls -al .. ;
       make format ;
       cd .. ;
       $(git diff) || (echo "You must run make format before submitting a pull request" ; exit -1 ) ;
