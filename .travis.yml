@@ -110,12 +110,12 @@ script:
     ls ;
     ./libfort_test ;
     fi
-  - cd ..
 
   # Clang static analyzer
   - if [ "${CC}" == 'clang' ];
     then
     cd ..  ;
+    pwd ;
     ls ;
     rm -rf build/* ;
     cd build ;
@@ -123,7 +123,6 @@ script:
     scan-build --version
     scan-build make ;
     fi
-  - cd ..
 
 
 
