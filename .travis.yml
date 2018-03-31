@@ -124,6 +124,9 @@ script:
       ls -al ;
       ls -al external ;
       ls -al .. ;
+      make ;
+      ls -al ;
+      ls -al .. ;
       make format ;
       cd .. ;
       $(git diff) || (echo "You must run make format before submitting a pull request" ; exit -1 ) ;
