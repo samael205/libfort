@@ -120,7 +120,6 @@ script:
     rm -rf build/* ;
     cd build ;
     cmake .. ;
-    scan-build --version
     scan-build make ;
     fi
 
