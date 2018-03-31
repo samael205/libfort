@@ -88,41 +88,41 @@ script:
   - ./libfort_test
 
   # Test build without optimizations and with ubsan
-  - if [ "${CC}" = 'gcc-7' ];
-    then
-    cd .. ;
-    rm -r build/* ;
-    cd build ;
-    cmake .. -DFORT_BUILD_TYPE=ubsan  ; 
-    cmake --build . --target all ;
-    ls ;
-    ./libfort_example ;
-    ./libfort_test ;
+  - |
+    if [ "${CC}" = 'gcc-7' ]; then
+      cd .. ;
+      rm -r build/* ;
+      cd build ;
+      cmake .. -DFORT_BUILD_TYPE=ubsan  ; 
+      cmake --build . --target all ;
+      ls ;
+      ./libfort_example ;
+      ./libfort_test ;
     fi
 
   # Build for coveralls
-  - if [ "${CC}" = 'gcc' ];
-    then
-    cd ..  ;
-    rm -r build/* ;
-    cd build ;
-    cmake .. -DFORT_BUILD_TYPE=coveralls ;
-    cmake --build . --target all ;
-    ls ;
-    ./libfort_test ;
+  - |
+    if [ "${CC}" = 'gcc' ]; then
+      cd ..  ;
+      rm -r build/* ;
+      cd build ;
+      cmake .. -DFORT_BUILD_TYPE=coveralls ;
+      cmake --build . --target all ;
+      ls ;
+      ./libfort_test ;
     fi
 
   # Astyle Format
-  - if [ "${CC}" = 'gcc' ];
-    then
-    cd ..  ;
-    rm -r build/* ;
-    cd build ;
-    cmake .. -DFORT_ENABLE_ASTYLE=ON ;
-    make format ;
-    cd .. ;
-    $(git diff) || (echo "You must run make format before submitting a pull request" ; exit -1 ) ;
-    cd build ;
+  - |
+    if [ "${CC}" = 'gcc' ]; then
+      cd ..  ;
+      rm -r build/* ;
+      cd build ;
+      cmake .. -DFORT_ENABLE_ASTYLE=ON ;
+      make format ;
+      cd .. ;
+      $(git diff) || (echo "You must run make format before submitting a pull request" ; exit -1 ) ;
+      cd build ;
     fi
 
 
