@@ -115,10 +115,13 @@ script:
   # Astyle Format
   - |
     if [ "${CC}" = 'gcc' ]; then
+      ls
       cd ..  ;
       rm -r build/* ;
       cd build ;
       cmake .. -DFORT_ENABLE_ASTYLE=ON ;
+      ls
+      ls ..
       make format ;
       cd .. ;
       $(git diff) || (echo "You must run make format before submitting a pull request" ; exit -1 ) ;
