@@ -141,7 +141,6 @@ endif(FORT_COMPILER STREQUAL "GNU")
 # ------------------------------------------------------------------------------
 
 if(FORT_ENABLE_ASTYLE)
-
     list(APPEND ASTYLE_CMAKE_ARGS
         "-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}"
     )
@@ -160,25 +159,25 @@ if(FORT_ENABLE_ASTYLE)
         BINARY_DIR          ${CMAKE_BINARY_DIR}/external/astyle/build
     )
 
-list(APPEND ASTYLE_ARGS
-    --style=kr
-    --lineend=linux
-    --suffix=none
-    --pad-oper
-    --unpad-paren
-    --align-pointer=name
-    --align-reference=name
-    --indent-switches
-    --keep-one-line-statements
-    --keep-one-line-blocks
-    --pad-header
-    --convert-tabs
-    --min-conditional-indent=0
-    --indent=spaces=4
-    ${CMAKE_SOURCE_DIR}/include/*.h
-    ${CMAKE_SOURCE_DIR}/src/*.c
-    ${CMAKE_SOURCE_DIR}/tests/*.c
-)
+    list(APPEND ASTYLE_ARGS
+        --style=kr
+        --lineend=linux
+        --suffix=none
+        --pad-oper
+        --unpad-paren
+        --align-pointer=name
+        --align-reference=name
+        --indent-switches
+        --keep-one-line-statements
+        --keep-one-line-blocks
+        --pad-header
+        --convert-tabs
+        --min-conditional-indent=0
+        --indent=spaces=4
+        ${CMAKE_SOURCE_DIR}/include/*.h
+        ${CMAKE_SOURCE_DIR}/src/*.c
+        ${CMAKE_SOURCE_DIR}/tests/*.c
+    )
 
     if(NOT WIN32 STREQUAL "1")
         add_custom_target(
