@@ -127,15 +127,15 @@ script:
 
 
   # Clang static analyzer
-  - if [ "${CC}" = 'clang' ];
-    then
-    cd ..  ;
-    pwd ;
-    ls ;
-    rm -rf build/* ;
-    cd build ;
-    cmake .. ;
-    scan-build make ;
+  - |
+    if [ "${CC}" = 'clang' ]; then
+      cd ..  ;
+      pwd ;
+      ls ;
+      rm -rf build/* ;
+      cd build ;
+      cmake .. ;
+      scan-build make ;
     fi
 
 
