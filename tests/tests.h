@@ -51,9 +51,10 @@ struct test_case
     if (wcscmp(str1, str2) != 0) \
     { \
         setlocale(LC_CTYPE, ""); \
-        fwprintf(stdout, L"%s:%d(%s):Abort! Not equals strings:\n",__FILE__,__LINE__, __FUNCTION__); \
+        fprintf(stderr, "%s:%d(%s):Abort! Not equals strings:\n",__FILE__,__LINE__, __FUNCTION__); \
         fwprintf(stdout, L"Left string:\n%ls\n", str1); \
         fwprintf(stdout, L"Right string:\n%ls\n", str2); \
+        fflush(stdout); \
         exit(EXIT_FAILURE); \
     }
 
