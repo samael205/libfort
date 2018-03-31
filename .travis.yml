@@ -112,5 +112,18 @@ script:
     fi
   - cd ..
 
+  # Clang static analyzer
+  - if [ "${CC}" == 'clang' ];
+    then
+    cd ..  ;
+    rm -r build/* ;
+    cd build ;
+    cmake .. ;
+    scan-build --version
+    scan-build make ;
+    fi
+  - cd ..
+
+
 
 
