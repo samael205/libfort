@@ -43,16 +43,20 @@ include_directories(src)
 # Warnings
 # ------------------------------------------------------------------------------
 
+MESSAGE( STATUS "FORT_COMPILER:         " ${FORT_COMPILER} )
+
 if(FORT_COMPILER STREQUAL "MSVC")
+    MESSAGE( STATUS "111111:         ")
+
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -W4")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -W4")
 else(FORT_COMPILER STREQUAL "MSVC")
+    MESSAGE( STATUS "222222:         ")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -g -Wextra")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -g -Wextra")
 endif(FORT_COMPILER STREQUAL "MSVC")
 
 
-MESSAGE( STATUS "FORT_COMPILER:         " ${FORT_COMPILER} )
 
 
 # ------------------------------------------------------------------------------
