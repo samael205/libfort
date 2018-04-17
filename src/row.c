@@ -52,7 +52,7 @@ void destroy_row(fort_row_t *row)
 
 
 
-unsigned int columns_in_row(const fort_row_t *row)
+size_t columns_in_row(const fort_row_t *row)
 {
     if (row == NULL || row->cells == NULL)
         return 0;
