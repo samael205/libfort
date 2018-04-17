@@ -8,13 +8,15 @@
  * ***************************************************************************/
 
 
-static int str_iter_width(const char *beg, const char *end)
+static ssize_t str_iter_width(const char *beg, const char *end)
 {
-    return end - beg;
+    assert(end >= beg);
+    return (ssize_t)(end - beg);
 }
 
-static int wcs_iter_width(const wchar_t *beg, const wchar_t *end)
+static ssize_t wcs_iter_width(const wchar_t *beg, const wchar_t *end)
 {
+    assert(end >= beg);
     return mk_wcswidth(beg, (end - beg));
 }
 
@@ -328,9 +330,13 @@ int buffer_printf(string_buffer_t *buffer, size_t buffer_row, char *buf, size_t 
     old_value = *end;
     *(CHAR_TYPE *)end = NULL_CHAR;
 
+    ssize_t str_it_width = STR_ITER_WIDTH(beg, end);
+    if (str_it_width < 0 || content_width < (size_t)str_it_width)
+        return - 1;
+
     CHCK_RSLT_ADD_TO_WRITTEN(SNPRINTF(buf + written, buf_len - written, SNPRINTF_FMT_STR, (int)(end - beg), beg));
     *(CHAR_TYPE *)end = old_value;
-    CHCK_RSLT_ADD_TO_WRITTEN(SNPRINT_N_CHARS(buf + written,  buf_len - written, (int)(content_width - STR_ITER_WIDTH(beg, end)), SPACE_CHAR));
+    CHCK_RSLT_ADD_TO_WRITTEN(SNPRINT_N_CHARS(buf + written,  buf_len - written, (content_width - (size_t)str_it_width), SPACE_CHAR));
     CHCK_RSLT_ADD_TO_WRITTEN(SNPRINT_N_CHARS(buf + written, buf_len - written, right, SPACE_CHAR));
     return written;
 
@@ -407,9 +413,13 @@ int buffer_wprintf(string_buffer_t *buffer, size_t buffer_row, wchar_t *buf, siz
     old_value = *end;
     *(CHAR_TYPE *)end = NULL_CHAR;
 
+    ssize_t str_it_width = STR_ITER_WIDTH(beg, end);
+    if (str_it_width < 0 || content_width < (size_t)str_it_width)
+        return - 1;
+
     CHCK_RSLT_ADD_TO_WRITTEN(SNPRINTF(buf + written, buf_len - written, SNPRINTF_FMT_STR, (int)(end - beg), beg));
     *(CHAR_TYPE *)end = old_value;
-    CHCK_RSLT_ADD_TO_WRITTEN(SNPRINT_N_CHARS(buf + written,  buf_len - written, (int)(content_width - STR_ITER_WIDTH(beg, end)), SPACE_CHAR));
+    CHCK_RSLT_ADD_TO_WRITTEN(SNPRINT_N_CHARS(buf + written,  buf_len - written, (content_width - (size_t)str_it_width), SPACE_CHAR));
     CHCK_RSLT_ADD_TO_WRITTEN(SNPRINT_N_CHARS(buf + written, buf_len - written, right, SPACE_CHAR));
     return written;
 
