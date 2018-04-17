@@ -293,8 +293,8 @@ int buffer_printf(string_buffer_t *buffer, size_t buffer_row, char *buf, size_t 
     if ((buf_len - 1) < content_width)
         return -1;
 
-    int left = 0;
-    int right = 0;
+    size_t left = 0;
+    size_t right = 0;
 
     switch (get_cell_opt_value_hierarcial(context->table_options, context->row, context->column, FT_COPT_TEXT_ALIGN)) {
         case FT_ALIGNED_LEFT:
@@ -313,9 +313,6 @@ int buffer_printf(string_buffer_t *buffer, size_t buffer_row, char *buf, size_t 
             assert(0);
             break;
     }
-    if (left < 0 || right < 0)
-        return -1;
-
 
     int  written = 0;
     int tmp = 0;
@@ -375,8 +372,8 @@ int buffer_wprintf(string_buffer_t *buffer, size_t buffer_row, wchar_t *buf, siz
     if ((buf_len - 1) < content_width)
         return -1;
 
-    int left = 0;
-    int right = 0;
+    size_t left = 0;
+    size_t right = 0;
 
     switch (get_cell_opt_value_hierarcial(context->table_options, context->row, context->column, FT_COPT_TEXT_ALIGN)) {
         case FT_ALIGNED_LEFT:
@@ -395,8 +392,6 @@ int buffer_wprintf(string_buffer_t *buffer, size_t buffer_row, wchar_t *buf, siz
             assert(0);
             break;
     }
-    if (left < 0 || right < 0)
-        return -1;
 
     int  written = 0;
     int tmp = 0;
