@@ -463,7 +463,7 @@ int snprintf_row(const fort_row_t *row, char *buffer, size_t buf_sz, size_t *col
     if (row == NULL)
         return -1;
 
-    unsigned int cols_in_row = columns_in_row(row);
+    size_t cols_in_row = columns_in_row(row);
     if (cols_in_row > col_width_arr_sz)
         return -1;
 
@@ -533,7 +533,7 @@ int wsnprintf_row(const fort_row_t *row, wchar_t *buffer, size_t buf_sz, size_t 
     if (row == NULL)
         return -1;
 
-    unsigned int cols_in_row = columns_in_row(row);
+    size_t cols_in_row = columns_in_row(row);
     if (cols_in_row > col_width_arr_sz)
         return -1;
 
