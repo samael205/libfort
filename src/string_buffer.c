@@ -9,13 +9,13 @@
  * ***************************************************************************/
 
 
-static ssize_t str_iter_width(const char *beg, const char *end)
+static ptrdiff_t str_iter_width(const char *beg, const char *end)
 {
     assert(end >= beg);
     return (ssize_t)(end - beg);
 }
 
-static ssize_t wcs_iter_width(const wchar_t *beg, const wchar_t *end)
+static ptrdiff_t wcs_iter_width(const wchar_t *beg, const wchar_t *end)
 {
     assert(end >= beg);
     return mk_wcswidth(beg, (end - beg));
@@ -331,7 +331,7 @@ int buffer_printf(string_buffer_t *buffer, size_t buffer_row, char *buf, size_t 
     old_value = *end;
     *(CHAR_TYPE *)end = NULL_CHAR;
 
-    ssize_t str_it_width = STR_ITER_WIDTH(beg, end);
+    ptrdiff_t str_it_width = STR_ITER_WIDTH(beg, end);
     if (str_it_width < 0 || content_width < (size_t)str_it_width)
         return - 1;
 
@@ -414,7 +414,7 @@ int buffer_wprintf(string_buffer_t *buffer, size_t buffer_row, wchar_t *buf, siz
     old_value = *end;
     *(CHAR_TYPE *)end = NULL_CHAR;
 
-    ssize_t str_it_width = STR_ITER_WIDTH(beg, end);
+    ptrdiff_t str_it_width = STR_ITER_WIDTH(beg, end);
     if (str_it_width < 0 || content_width < (size_t)str_it_width)
         return - 1;
 
