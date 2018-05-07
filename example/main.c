@@ -117,38 +117,12 @@ int main(void)
     table = create_basic_table();
     str = ft_to_string(table);
     printf("Table:\n%s\n", str);
-    print_char_str(str);
-    str_etalon =
-        "+------+--------------------------+------+--------+\n"
-        "| Rank | Title                    | Year | Rating |\n"
-        "+------+--------------------------+------+--------+\n"
-        "|  1   | The Shawshank Redemption | 1994 |    9.5 |\n"
-        "|  2   | 12 Angry Men             | 1957 |    8.8 |\n"
-        "|  3   | It's a Wonderful Life    | 1946 |    8.6 |\n"
-        "+------+--------------------------+------+--------+\n"
-        "|  4   | 2001: A Space Odyssey    | 1968 |    8.5 |\n"
-        "|  5   | Blade Runner             | 1982 |    8.1 |\n"
-        "+------+--------------------------+------+--------+\n";
-    printf("cmp result %d\n", (int)strcmp(str_etalon, str));
     ft_destroy_table(table);
 
     ft_set_default_border_style(FT_SIMPLE_STYLE);
     table = create_basic_table();
     str = ft_to_string(table);
     printf("Table:\n%s\n", str);
-    print_char_str(str);
-    str_etalon =
-            "                                                   \n"
-            "  Rank   Title                      Year   Rating  \n"
-            " ------ -------------------------- ------ -------- \n"
-            "   1     The Shawshank Redemption   1994      9.5  \n"
-            "   2     12 Angry Men               1957      8.8  \n"
-            "   3     It's a Wonderful Life      1946      8.6  \n"
-            " ------ -------------------------- ------ -------- \n"
-            "   4     2001: A Space Odyssey      1968      8.5  \n"
-            "   5     Blade Runner               1982      8.1  \n"
-            "                                                   \n";
-    printf("cmp result %d\n", (int)strcmp(str_etalon, str));
     printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
@@ -156,19 +130,6 @@ int main(void)
     table = create_basic_table();
     str = ft_to_string(table);
     printf("Table:\n%s\n", str);
-    print_char_str(str);
-    str_etalon =
-            " ------------------------------------------------- \n"
-            "  Rank   Title                      Year   Rating  \n"
-            " ------------------------------------------------- \n"
-            "   1     The Shawshank Redemption   1994      9.5  \n"
-            "   2     12 Angry Men               1957      8.8  \n"
-            "   3     It's a Wonderful Life      1946      8.6  \n"
-            " ------------------------------------------------- \n"
-            "   4     2001: A Space Odyssey      1968      8.5  \n"
-            "   5     Blade Runner               1982      8.1  \n"
-            "                                                   \n";
-    printf("cmp result %d\n", (int)strcmp(str_etalon, str));
     printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
@@ -176,19 +137,6 @@ int main(void)
     table = create_basic_table();
     str = ft_to_string(table);
     printf("Table:\n%s\n", str);
-    print_char_str(str);
-    str_etalon =
-            "...................................................\n"
-            ": Rank : Title                    : Year : Rating :\n"
-            ":......:..........................:......:........:\n"
-            ":  1   : The Shawshank Redemption : 1994 :    9.5 :\n"
-            ":  2   : 12 Angry Men             : 1957 :    8.8 :\n"
-            ":  3   : It's a Wonderful Life    : 1946 :    8.6 :\n"
-            ":......:..........................:......:........:\n"
-            ":  4   : 2001: A Space Odyssey    : 1968 :    8.5 :\n"
-            ":  5   : Blade Runner             : 1982 :    8.1 :\n"
-            ":......:..........................:......:........:\n";
-    printf("cmp result %d\n", (int)strcmp(str_etalon, str));
     printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
@@ -196,18 +144,6 @@ int main(void)
     table = create_basic_table();
     str = ft_to_string(table);
     printf("Table:\n%s\n", str);
-    print_char_str(str);
-    str_etalon =
-            "                                                   \n"
-            "  Rank   Title                      Year   Rating  \n"
-            "   1     The Shawshank Redemption   1994      9.5  \n"
-            "   2     12 Angry Men               1957      8.8  \n"
-            "   3     It's a Wonderful Life      1946      8.6  \n"
-            "                                                   \n"
-            "   4     2001: A Space Odyssey      1968      8.5  \n"
-            "   5     Blade Runner               1982      8.1  \n"
-            "                                                   \n";
-    printf("cmp result %d\n", (int)strcmp(str_etalon, str));
     printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
@@ -215,19 +151,6 @@ int main(void)
     table = create_basic_table();
     str = ft_to_string(table);
     printf("Table:\n%s\n", str);
-    print_char_str(str);
-    str_etalon =
-            "┌──────┬──────────────────────────┬──────┬────────┐\n"
-            "│ Rank │ Title                    │ Year │ Rating │\n"
-            "├──────┼──────────────────────────┼──────┼────────┤\n"
-            "│  1   │ The Shawshank Redemption │ 1994 │    9.5 │\n"
-            "│  2   │ 12 Angry Men             │ 1957 │    8.8 │\n"
-            "│  3   │ It's a Wonderful Life    │ 1946 │    8.6 │\n"
-            "├──────┼──────────────────────────┼──────┼────────┤\n"
-            "│  4   │ 2001: A Space Odyssey    │ 1968 │    8.5 │\n"
-            "│  5   │ Blade Runner             │ 1982 │    8.1 │\n"
-            "└──────┴──────────────────────────┴──────┴────────╯\n";
-    printf("cmp result %d\n", (int)strcmp(str_etalon, str));
     printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
@@ -235,19 +158,6 @@ int main(void)
     table = create_basic_table();
     str = ft_to_string(table);
     printf("Table:\n%s\n", str);
-    print_char_str(str);
-    str_etalon =
-            "╭──────┬──────────────────────────┬──────┬────────╮\n"
-            "│ Rank │ Title                    │ Year │ Rating │\n"
-            "├──────┼──────────────────────────┼──────┼────────┤\n"
-            "│  1   │ The Shawshank Redemption │ 1994 │    9.5 │\n"
-            "│  2   │ 12 Angry Men             │ 1957 │    8.8 │\n"
-            "│  3   │ It's a Wonderful Life    │ 1946 │    8.6 │\n"
-            "├──────┼──────────────────────────┼──────┼────────┤\n"
-            "│  4   │ 2001: A Space Odyssey    │ 1968 │    8.5 │\n"
-            "│  5   │ Blade Runner             │ 1982 │    8.1 │\n"
-            "╰──────┴──────────────────────────┴──────┴────────╯\n";
-    printf("cmp result %d\n", (int)strcmp(str_etalon, str));
     printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
@@ -255,19 +165,6 @@ int main(void)
     table = create_basic_table();
     str = ft_to_string(table);
     printf("Table:\n%s\n", str);
-    print_char_str(str);
-    str_etalon =
-            "╔══════╦══════════════════════════╦══════╦════════╗\n"
-            "║ Rank ║ Title                    ║ Year ║ Rating ║\n"
-            "╠══════╬══════════════════════════╬══════╬════════╣\n"
-            "║  1   ║ The Shawshank Redemption ║ 1994 ║    9.5 ║\n"
-            "║  2   ║ 12 Angry Men             ║ 1957 ║    8.8 ║\n"
-            "║  3   ║ It's a Wonderful Life    ║ 1946 ║    8.6 ║\n"
-            "╠══════╬══════════════════════════╬══════╬════════╣\n"
-            "║  4   ║ 2001: A Space Odyssey    ║ 1968 ║    8.5 ║\n"
-            "║  5   ║ Blade Runner             ║ 1982 ║    8.1 ║\n"
-            "╚══════╩══════════════════════════╩══════╩════════╝\n";
-    printf("cmp result %d\n", (int)strcmp(str_etalon, str));
     printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
@@ -275,22 +172,6 @@ int main(void)
     table = create_basic_table();
     str = ft_to_string(table);
     printf("Table:\n%s\n", str);
-    print_char_str(str);
-    str_etalon =
-            "╔══════╤══════════════════════════╤══════╤════════╗\n"
-            "║ Rank │ Title                    │ Year │ Rating ║\n"
-            "╠══════╪══════════════════════════╪══════╪════════╣\n"
-            "║  1   │ The Shawshank Redemption │ 1994 │    9.5 ║\n"
-            "╟──────┼──────────────────────────┼──────┼────────╢\n"
-            "║  2   │ 12 Angry Men             │ 1957 │    8.8 ║\n"
-            "╟──────┼──────────────────────────┼──────┼────────╢\n"
-            "║  3   │ It's a Wonderful Life    │ 1946 │    8.6 ║\n"
-            "╠══════╪══════════════════════════╪══════╪════════╣\n"
-            "║  4   │ 2001: A Space Odyssey    │ 1968 │    8.5 ║\n"
-            "╟──────┼──────────────────────────┼──────┼────────╢\n"
-            "║  5   │ Blade Runner             │ 1982 │    8.1 ║\n"
-            "╚══════╧══════════════════════════╧══════╧════════╝\n";
-    printf("cmp result %d\n", (int)strcmp(str_etalon, str));
     printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
@@ -298,19 +179,6 @@ int main(void)
     table = create_basic_table();
     str = ft_to_string(table);
     printf("Table:\n%s\n", str);
-    print_char_str(str);
-    str_etalon =
-            "┏━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━┳━━━━━━━━┓\n"
-            "┃ Rank ┃ Title                    ┃ Year ┃ Rating ┃\n"
-            "┣━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━╋━━━━━━━━┫\n"
-            "┃  1   ┃ The Shawshank Redemption ┃ 1994 ┃    9.5 ┃\n"
-            "┃  2   ┃ 12 Angry Men             ┃ 1957 ┃    8.8 ┃\n"
-            "┃  3   ┃ It's a Wonderful Life    ┃ 1946 ┃    8.6 ┃\n"
-            "┣━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━╋━━━━━━━━┫\n"
-            "┃  4   ┃ 2001: A Space Odyssey    ┃ 1968 ┃    8.5 ┃\n"
-            "┃  5   ┃ Blade Runner             ┃ 1982 ┃    8.1 ┃\n"
-            "┗━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━┻━━━━━━━━┛\n";
-    printf("cmp result %d\n", (int)strcmp(str_etalon, str));
     printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
@@ -318,22 +186,6 @@ int main(void)
     table = create_basic_table();
     str = ft_to_string(table);
     printf("Table:\n%s\n", str);
-    print_char_str(str);
-    str_etalon =
-            "┏━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━┯━━━━━━━━┓\n"
-            "┃ Rank │ Title                    │ Year │ Rating ┃\n"
-            "┣━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━┿━━━━━━━━┫\n"
-            "┃  1   │ The Shawshank Redemption │ 1994 │    9.5 ┃\n"
-            "┠──────┼──────────────────────────┼──────┼────────┨\n"
-            "┃  2   │ 12 Angry Men             │ 1957 │    8.8 ┃\n"
-            "┠──────┼──────────────────────────┼──────┼────────┨\n"
-            "┃  3   │ It's a Wonderful Life    │ 1946 │    8.6 ┃\n"
-            "┣━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━━━━┿━━━━━━┿━━━━━━━━┫\n"
-            "┃  4   │ 2001: A Space Odyssey    │ 1968 │    8.5 ┃\n"
-            "┠──────┼──────────────────────────┼──────┼────────┨\n"
-            "┃  5   │ Blade Runner             │ 1982 │    8.1 ┃\n"
-            "┗━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━┷━━━━━━━━┛\n";
-    printf("cmp result %d\n", (int)strcmp(str_etalon, str));
     printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
@@ -341,19 +193,6 @@ int main(void)
     table = create_basic_table();
     str = ft_to_string(table);
     printf("Table:\n%s\n", str);
-    print_char_str(str);
-    str_etalon =
-            "▛▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▜\n"
-            "▌ Rank ┃ Title                    ┃ Year ┃ Rating ▐\n"
-            "▌━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━╋━━━━━━━━▐\n"
-            "▌  1   ┃ The Shawshank Redemption ┃ 1994 ┃    9.5 ▐\n"
-            "▌  2   ┃ 12 Angry Men             ┃ 1957 ┃    8.8 ▐\n"
-            "▌  3   ┃ It's a Wonderful Life    ┃ 1946 ┃    8.6 ▐\n"
-            "▌━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━╋━━━━━━━━▐\n"
-            "▌  4   ┃ 2001: A Space Odyssey    ┃ 1968 ┃    8.5 ▐\n"
-            "▌  5   ┃ Blade Runner             ┃ 1982 ┃    8.1 ▐\n"
-            "▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟\n";
-    printf("cmp result %d\n", (int)strcmp(str_etalon, str));
     printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
