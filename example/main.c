@@ -149,7 +149,7 @@ int main(void)
             "   5     Blade Runner               1982      8.1  \n"
             "                                                   \n";
     printf("cmp result %d\n", (int)strcmp(str_etalon, str));
-    printf("Table2:\n%s\n", str_etalon);
+    printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
     ft_set_default_border_style(FT_PLAIN_STYLE);
@@ -169,7 +169,7 @@ int main(void)
             "   5     Blade Runner               1982      8.1  \n"
             "                                                   \n";
     printf("cmp result %d\n", (int)strcmp(str_etalon, str));
-    printf("Table2:\n%s\n", str_etalon);
+    printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
     ft_set_default_border_style(FT_DOT_STYLE);
@@ -189,7 +189,7 @@ int main(void)
             ":  5   : Blade Runner             : 1982 :    8.1 :\n"
             ":......:..........................:......:........:\n";
     printf("cmp result %d\n", (int)strcmp(str_etalon, str));
-    printf("Table2:\n%s\n", str_etalon);
+    printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
     ft_set_default_border_style(FT_EMPTY_STYLE);
@@ -208,7 +208,7 @@ int main(void)
             "   5     Blade Runner               1982      8.1  \n"
             "                                                   \n";
     printf("cmp result %d\n", (int)strcmp(str_etalon, str));
-    printf("Table2:\n%s\n", str_etalon);
+    printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
     ft_set_default_border_style(FT_SOLID_STYLE);
@@ -228,7 +228,7 @@ int main(void)
             "│  5   │ Blade Runner             │ 1982 │    8.1 │\n"
             "└──────┴──────────────────────────┴──────┴────────╯\n";
     printf("cmp result %d\n", (int)strcmp(str_etalon, str));
-    printf("Table2:\n%s\n", str_etalon);
+    printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
     ft_set_default_border_style(FT_SOLID_ROUND_STYLE);
@@ -248,7 +248,7 @@ int main(void)
             "│  5   │ Blade Runner             │ 1982 │    8.1 │\n"
             "╰──────┴──────────────────────────┴──────┴────────╯\n";
     printf("cmp result %d\n", (int)strcmp(str_etalon, str));
-    printf("Table2:\n%s\n", str_etalon);
+    printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
     ft_set_default_border_style(FT_DOUBLE_STYLE);
@@ -268,7 +268,7 @@ int main(void)
             "║  5   ║ Blade Runner             ║ 1982 ║    8.1 ║\n"
             "╚══════╩══════════════════════════╩══════╩════════╝\n";
     printf("cmp result %d\n", (int)strcmp(str_etalon, str));
-    printf("Table2:\n%s\n", str_etalon);
+    printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
     ft_set_default_border_style(FT_DOUBLE2_STYLE);
@@ -291,7 +291,7 @@ int main(void)
             "║  5   │ Blade Runner             │ 1982 │    8.1 ║\n"
             "╚══════╧══════════════════════════╧══════╧════════╝\n";
     printf("cmp result %d\n", (int)strcmp(str_etalon, str));
-    printf("Table2:\n%s\n", str_etalon);
+    printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
     ft_set_default_border_style(FT_BOLD_STYLE);
@@ -311,7 +311,7 @@ int main(void)
             "┃  5   ┃ Blade Runner             ┃ 1982 ┃    8.1 ┃\n"
             "┗━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━┻━━━━━━━━┛\n";
     printf("cmp result %d\n", (int)strcmp(str_etalon, str));
-    printf("Table2:\n%s\n", str_etalon);
+    printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
     ft_set_default_border_style(FT_BOLD2_STYLE);
@@ -334,7 +334,7 @@ int main(void)
             "┃  5   │ Blade Runner             │ 1982 │    8.1 ┃\n"
             "┗━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━┷━━━━━━━━┛\n";
     printf("cmp result %d\n", (int)strcmp(str_etalon, str));
-    printf("Table2:\n%s\n", str_etalon);
+    printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
     ft_set_default_border_style(FT_FRAME_STYLE);
@@ -354,7 +354,7 @@ int main(void)
             "▌  5   ┃ Blade Runner             ┃ 1982 ┃    8.1 ▐\n"
             "▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟\n";
     printf("cmp result %d\n", (int)strcmp(str_etalon, str));
-    printf("Table2:\n%s\n", str_etalon);
+    printf("Table2:\n%s\n", str);
     ft_destroy_table(table);
 
     /* Debug */
