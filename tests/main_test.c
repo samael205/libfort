@@ -61,6 +61,9 @@ int main(void)
 {
     int status = 0;
 
+#if defined(FT_HAVE_WCHAR)
+    setlocale(LC_CTYPE, "");
+#endif
 #ifdef FORT_WB_TESTING_ENABLED
     status |= run_wb_test_suit();
     fprintf(stderr, "\n");
