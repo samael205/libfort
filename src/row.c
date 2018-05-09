@@ -928,9 +928,11 @@ int wsnprintf_row(const fort_row_t *row, wchar_t *buffer, size_t buf_sz, size_t 
     const char *space_char = " ";
     const char *new_line_char = "\n";
 
+    fprintf(stderr, "__00000000\n");
     if (row == NULL)
         return -1;
 
+    fprintf(stderr, "__1\n");
     size_t cols_in_row = columns_in_row(row);
     if (cols_in_row > col_width_arr_sz)
         return -1;
@@ -940,6 +942,7 @@ int wsnprintf_row(const fort_row_t *row, wchar_t *buffer, size_t buf_sz, size_t 
      *  L    data    IV    data   IV   data    R
      */
 
+    fprintf(stderr, "__2\n");
     typedef const char *(*border_chars_point_t)[BorderItemPosSize];
     enum ft_row_type row_type = (enum ft_row_type)get_cell_opt_value_hierarcial(context->table_options, context->row, FT_ANY_COLUMN, FT_COPT_ROW_TYPE);
     const char *(*bord_chars)[BorderItemPosSize] = (row_type == FT_ROW_HEADER)
@@ -955,9 +958,11 @@ int wsnprintf_row(const fort_row_t *row, wchar_t *buffer, size_t buf_sz, size_t 
     size_t i = 0;
     for (i = 0; i < row_height; ++i) {
         /* Print left margin */
+        fprintf(stderr, "__3\n");
         CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buffer + written, buf_sz - written, context->table_options->entire_table_options.left_margin, space_char));
 
         /* Print left table boundary */
+        fprintf(stderr, "__4\n");
         CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buffer + written, buf_sz - written, 1, *L));
         size_t j = 0;
         while (j < col_width_arr_sz) {
@@ -975,31 +980,40 @@ int wsnprintf_row(const fort_row_t *row, wchar_t *buffer, size_t buf_sz, size_t 
                     ++j;
                 }
 
+                fprintf(stderr, "__5\n");
                 CHCK_RSLT_ADD_TO_WRITTEN(cell_printf_(cell, i, buffer + written, cell_width + 1, context));
             } else {
+                fprintf(stderr, "__6\n");
                 /* Print empty cell */
                 CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buffer + written, buf_sz - written, col_width_arr[j], space_char));
             }
 
+            fprintf(stderr, "__7\n");
             /* Print boundary between cells */
             if (j < col_width_arr_sz - 1)
                 CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buffer + written, buf_sz - written, 1, *IV));
+            fprintf(stderr, "__8\n");
 
             ++j;
         }
 
+        fprintf(stderr, "__9\n");
         /* Print right table boundary */
         CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buffer + written, buf_sz - written, 1, *R));
 
+        fprintf(stderr, "__10\n");
         /* Print right margin */
         CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buffer + written, buf_sz - written, context->table_options->entire_table_options.right_margin, space_char));
 
+        fprintf(stderr, "__11\n");
         /* Print new line character */
         CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buffer + written, buf_sz - written, 1, new_line_char));
     }
+    fprintf(stderr, "__12\n");
     return written;
 
 clear:
+    fprintf(stderr, "__99\n");
     return -1;
 }
 
