@@ -433,11 +433,15 @@ int buffer_wprintf(string_buffer_t *buffer, size_t buffer_row, wchar_t *buf, siz
     old_value = *end;
     *(CHAR_TYPE *)end = NULL_CHAR;
 
-    fprintf(stderr, "$$4 %p %p\n", beg, end);
+    fprintf(stderr, "$$4 %p %p\n", (void *)beg, (void *)end);
     ptrdiff_t str_it_width = STR_ITER_WIDTH(beg, end);
     if (str_it_width < 0 || content_width < (size_t)str_it_width)
         return - 1;
 
+    int rslt = fwprintf(stdout, L"!!! 111\n");
+    fprintf(stderr, "$$41 - %d \n", rslt);
+    rslt = fwprintf(stdout, L"!!! 12345\x8888\x8888\n");
+    fprintf(stderr, "$$42 - %d \n", rslt);
     fprintf(stderr, "$$5 - %d %d %d\n", (int)written, (int)(buf_len - written), (int)(end - beg));
     CHCK_RSLT_ADD_TO_WRITTEN(SNPRINTF(buf + written, buf_len - written, SNPRINTF_FMT_STR, (int)(end - beg), beg));
     *(CHAR_TYPE *)end = old_value;
