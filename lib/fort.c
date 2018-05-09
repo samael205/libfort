@@ -2259,6 +2259,7 @@ const wchar_t *ft_to_wstring(const ft_table_t *table)
         enum HorSeparatorPos separatorPos = (i == 0) ? TopSeparator : InsideSeparator;
         context.row = i;
         CHCK_RSLT_ADD_TO_WRITTEN(print_row_separator_(buffer + written, sz - written, col_width_arr, cols, prev_row, cur_row, separatorPos, cur_sep, &context));
+        fprintf(stderr, "4545454545\n");
         CHCK_RSLT_ADD_TO_WRITTEN(snprintf_row_(cur_row, buffer + written, sz - written, col_width_arr, cols, row_height_arr[i], &context));
         prev_row = cur_row;
         fprintf(stderr, "55555\n");
