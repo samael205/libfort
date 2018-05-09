@@ -2199,10 +2199,12 @@ const wchar_t *ft_to_wstring(const ft_table_t *table)
     size_t width = 0;
     int status = table_geometry(table, &height, &width);
     if (FT_IS_ERROR(status)) {
+        fprintf(stderr, "1111\n");
         return NULL;
     }
     size_t sz = height * width + 1;
 
+    fprintf(stderr, "0000\n");
     /* Allocate string buffer for string representation */
     if (table->conv_buffer == NULL) {
         ((ft_table_t *)table)->conv_buffer = create_string_buffer(sz, buf_type);
@@ -2216,6 +2218,7 @@ const wchar_t *ft_to_wstring(const ft_table_t *table)
     }
     char_type *buffer = (char_type *)buffer_get_data(table->conv_buffer);
 
+    fprintf(stderr, "2222\n");
 
     size_t cols = 0;
     size_t rows = 0;
@@ -2228,6 +2231,9 @@ const wchar_t *ft_to_wstring(const ft_table_t *table)
 
     if (FT_IS_ERROR(status))
         return NULL;
+
+    fprintf(stderr, "3333\n");
+
 
     int written = 0;
     int tmp = 0;
@@ -2244,6 +2250,8 @@ const wchar_t *ft_to_wstring(const ft_table_t *table)
         CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buffer + written, sz - written, width - 1/* minus new_line*/, space_char));
         CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buffer + written, sz - written, 1, new_line_char));
     }
+    fprintf(stderr, "4444\n");
+
 
     for (i = 0; i < rows; ++i) {
         cur_sep = (i < sep_size) ? (*(separator_t **)vector_at(table->separators, i)) : NULL;
@@ -2253,15 +2261,21 @@ const wchar_t *ft_to_wstring(const ft_table_t *table)
         CHCK_RSLT_ADD_TO_WRITTEN(print_row_separator_(buffer + written, sz - written, col_width_arr, cols, prev_row, cur_row, separatorPos, cur_sep, &context));
         CHCK_RSLT_ADD_TO_WRITTEN(snprintf_row_(cur_row, buffer + written, sz - written, col_width_arr, cols, row_height_arr[i], &context));
         prev_row = cur_row;
+        fprintf(stderr, "55555\n");
     }
     cur_row = NULL;
     cur_sep = (i < sep_size) ? (*(separator_t **)vector_at(table->separators, i)) : NULL;
     CHCK_RSLT_ADD_TO_WRITTEN(print_row_separator_(buffer + written, sz - written, col_width_arr, cols, prev_row, cur_row, BottomSeparator, cur_sep, &context));
 
+    fprintf(stderr, "6666\n");
+
     /* Print bottom margin */
     for (i = 0; i < context.table_options->entire_table_options.bottom_margin; ++i) {
         CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buffer + written, sz - written, width - 1/* minus new_line*/, space_char));
         CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buffer + written, sz - written, 1, new_line_char));
+
+        fprintf(stderr, "7777\n");
+
     }
 
     F_FREE(col_width_arr);
@@ -2269,6 +2283,8 @@ const wchar_t *ft_to_wstring(const ft_table_t *table)
     return buffer;
 
 clear:
+    fprintf(stderr, "888\n");
+
     F_FREE(col_width_arr);
     F_FREE(row_height_arr);
 //    F_FREE(buffer);
