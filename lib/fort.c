@@ -3140,6 +3140,7 @@ clear:
 #undef STR_ITER_WIDTH
 }
 
+#ifdef FT_HAVE_WCHAR
 
 int buffer_wprintf(string_buffer_t *buffer, size_t buffer_row, wchar_t *buf, size_t buf_len, const context_t *context)
 {
@@ -3155,14 +3156,18 @@ int buffer_wprintf(string_buffer_t *buffer, size_t buffer_row, wchar_t *buf, siz
 #define STR_N_SUBSTRING wstr_n_substring
 #define STR_ITER_WIDTH wcs_iter_width
 
+
     if (buffer == NULL || buffer->str.data == NULL
         || buffer_row >= buffer_text_height(buffer) || buf_len == 0) {
         return -1;
     }
+    fprintf(stderr, "$$0\n");
 
     size_t content_width = buffer_text_width(buffer);
     if ((buf_len - 1) < content_width)
         return -1;
+
+    fprintf(stderr, "$$1\n");
 
     size_t left = 0;
     size_t right = 0;
@@ -3191,25 +3196,33 @@ int buffer_wprintf(string_buffer_t *buffer, size_t buffer_row, wchar_t *buf, siz
     const CHAR_TYPE *end = NULL;
     CHAR_TYPE old_value;
 
+    fprintf(stderr, "$$2\n");
     CHCK_RSLT_ADD_TO_WRITTEN(SNPRINT_N_STRINGS(buf + written, buf_len - written, left, SPACE_CHAR));
 
+    fprintf(stderr, "$$3\n");
     STR_N_SUBSTRING(buffer->BUFFER_STR, NEWLINE_CHAR, buffer_row, &beg, &end);
     if (beg == NULL || end == NULL)
         return -1;
     old_value = *end;
     *(CHAR_TYPE *)end = NULL_CHAR;
 
+    fprintf(stderr, "$$4\n");
     ptrdiff_t str_it_width = STR_ITER_WIDTH(beg, end);
     if (str_it_width < 0 || content_width < (size_t)str_it_width)
         return - 1;
 
+    fprintf(stderr, "$$5\n");
     CHCK_RSLT_ADD_TO_WRITTEN(SNPRINTF(buf + written, buf_len - written, SNPRINTF_FMT_STR, (int)(end - beg), beg));
     *(CHAR_TYPE *)end = old_value;
+    fprintf(stderr, "$$6\n");
     CHCK_RSLT_ADD_TO_WRITTEN(SNPRINT_N_STRINGS(buf + written,  buf_len - written, (content_width - (size_t)str_it_width), SPACE_CHAR));
+    fprintf(stderr, "$$7\n");
     CHCK_RSLT_ADD_TO_WRITTEN(SNPRINT_N_STRINGS(buf + written, buf_len - written, right, SPACE_CHAR));
+    fprintf(stderr, "$$8\n");
     return written;
 
 clear:
+    fprintf(stderr, "$$9\n");
     return -1;
 
 #undef CHAR_TYPE
@@ -3224,6 +3237,7 @@ clear:
 #undef STR_N_SUBSTRING
 #undef STR_ITER_WIDTH
 }
+#endif
 
 size_t string_buffer_capacity(const string_buffer_t *buffer)
 {
@@ -5048,8 +5062,6 @@ int cell_wprintf(fort_cell_t *cell, size_t row, wchar_t *buf, size_t buf_len, co
         return -1;
     }
 
-    fprintf(stderr, "**1\n");
-
     unsigned int cell_padding_top = get_cell_opt_value_hierarcial(context->table_options, context->row, context->column, FT_COPT_TOP_PADDING);
     unsigned int cell_padding_left = get_cell_opt_value_hierarcial(context->table_options, context->row, context->column, FT_COPT_LEFT_PADDING);
     unsigned int cell_padding_right = get_cell_opt_value_hierarcial(context->table_options, context->row, context->column, FT_COPT_RIGHT_PADDING);
@@ -5060,13 +5072,11 @@ int cell_wprintf(fort_cell_t *cell, size_t row, wchar_t *buf, size_t buf_len, co
         return snprint_n_strings_(buf, buf_len, buf_len - 1, space_char);
     }
 
-    fprintf(stderr, "**2\n");
     int written = 0;
     int tmp = 0;
     int left = cell_padding_left;
     int right = cell_padding_right;
 
-    fprintf(stderr, "**3\n");
     CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buf + written, buf_len - written, left, space_char));
     fprintf(stderr, "**4\n");
 

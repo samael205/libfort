@@ -164,8 +164,6 @@ int cell_wprintf(fort_cell_t *cell, size_t row, wchar_t *buf, size_t buf_len, co
         return -1;
     }
 
-    fprintf(stderr, "**1\n");
-
     unsigned int cell_padding_top = get_cell_opt_value_hierarcial(context->table_options, context->row, context->column, FT_COPT_TOP_PADDING);
     unsigned int cell_padding_left = get_cell_opt_value_hierarcial(context->table_options, context->row, context->column, FT_COPT_LEFT_PADDING);
     unsigned int cell_padding_right = get_cell_opt_value_hierarcial(context->table_options, context->row, context->column, FT_COPT_RIGHT_PADDING);
@@ -176,13 +174,11 @@ int cell_wprintf(fort_cell_t *cell, size_t row, wchar_t *buf, size_t buf_len, co
         return snprint_n_strings_(buf, buf_len, buf_len - 1, space_char);
     }
 
-    fprintf(stderr, "**2\n");
     int written = 0;
     int tmp = 0;
     int left = cell_padding_left;
     int right = cell_padding_right;
 
-    fprintf(stderr, "**3\n");
     CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buf + written, buf_len - written, left, space_char));
     fprintf(stderr, "**4\n");
 
