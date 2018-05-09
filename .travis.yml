@@ -13,8 +13,6 @@ matrix:
       compiler: clang
       env: CC=clang
       
-
-
     # Linux / GCC
     - os: linux
       sudo: false
@@ -59,6 +57,13 @@ matrix:
         apt:
           sources: ['ubuntu-toolchain-r-test']
           packages: ['g++-7']
+
+
+    # OSX / Clang
+    - os: osx
+      osx_image: xcode6.4
+      env: CC=clang
+
       
 
 
