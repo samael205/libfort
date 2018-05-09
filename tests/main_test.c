@@ -19,25 +19,25 @@ void run_test_suit(const char *test_suit_name, int n_tests, struct test_case tes
 #ifdef FORT_WB_TESTING_ENABLED
 struct test_case wb_test_suit [] = {
     {"test_vector_basic", test_vector_basic},
-    {"test_vector_stress", test_vector_stress},
-    {"test_string_buffer", test_string_buffer},
-    {"test_table_sizes", test_table_sizes},
-    {"test_table_geometry", test_table_geometry},
+//    {"test_vector_stress", test_vector_stress},
+//    {"test_string_buffer", test_string_buffer},
+//    {"test_table_sizes", test_table_sizes},
+//    {"test_table_geometry", test_table_geometry},
 };
 #endif
 
 
 struct test_case bb_test_suit [] = {
-    {"test_table_basic", test_table_basic},
+//    {"test_table_basic", test_table_basic},
 #ifdef FT_HAVE_WCHAR
     {"test_wcs_table_boundaries", test_wcs_table_boundaries},
 #endif
-    {"test_table_write", test_table_write},
-    {"test_table_border_style", test_table_border_style},
-    {"test_table_builtin_border_styles", test_table_builtin_border_styles},
-    {"test_table_cell_options", test_table_cell_options},
-    {"test_table_tbl_options", test_table_tbl_options},
-    {"test_memory_errors", test_memory_errors},
+//    {"test_table_write", test_table_write},
+//    {"test_table_border_style", test_table_border_style},
+//    {"test_table_builtin_border_styles", test_table_builtin_border_styles},
+//    {"test_table_cell_options", test_table_cell_options},
+//    {"test_table_tbl_options", test_table_tbl_options},
+//    {"test_memory_errors", test_memory_errors},
 };
 
 #ifdef FORT_WB_TESTING_ENABLED
