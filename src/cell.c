@@ -157,11 +157,14 @@ int cell_wprintf(fort_cell_t *cell, size_t row, wchar_t *buf, size_t buf_len, co
     int (*snprint_n_strings_)(wchar_t *, size_t, size_t, const char *) = wsnprint_n_string;
 
 
+    fprintf(stderr, "**0\n");
 
     if (cell == NULL || buf_len == 0
         || (buf_len <= hint_width_cell(cell, context))) {
         return -1;
     }
+
+    fprintf(stderr, "**1\n");
 
     unsigned int cell_padding_top = get_cell_opt_value_hierarcial(context->table_options, context->row, context->column, FT_COPT_TOP_PADDING);
     unsigned int cell_padding_left = get_cell_opt_value_hierarcial(context->table_options, context->row, context->column, FT_COPT_LEFT_PADDING);
@@ -173,18 +176,27 @@ int cell_wprintf(fort_cell_t *cell, size_t row, wchar_t *buf, size_t buf_len, co
         return snprint_n_strings_(buf, buf_len, buf_len - 1, space_char);
     }
 
+    fprintf(stderr, "**2\n");
     int written = 0;
     int tmp = 0;
     int left = cell_padding_left;
     int right = cell_padding_right;
 
+    fprintf(stderr, "**3\n");
     CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buf + written, buf_len - written, left, space_char));
+    fprintf(stderr, "**4\n");
 
-    if (cell->str_buffer)
+    if (cell->str_buffer) {
+        fprintf(stderr, "**5\n");
         CHCK_RSLT_ADD_TO_WRITTEN(buffer_printf_(cell->str_buffer, row - cell_padding_top, buf + written, buf_len - written - right, context));
-    else
+    } else {
+        fprintf(stderr, "**6\n");
         CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buf + written, buf_len - written, buf_len - written - right, space_char));
+    }
+    fprintf(stderr, "**7\n");
     CHCK_RSLT_ADD_TO_WRITTEN(snprint_n_strings_(buf + written, buf_len - written, right, space_char));
+
+    fprintf(stderr, "**8\n");
 
     return written;
 
